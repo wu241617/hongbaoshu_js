@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=1.0,viewport-fit=cover">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        window.onload() {
+            console.log('HelloWorld')
+                //clg + enter按键  console.log()--->快捷键
+                // 程序运行之前，会进行预解析（var 存在变量提升） 
+            const HOST = {
+                url: 'http://www.com',
+                port: 443
+            }
+            Object.freeze(HOST) //冻结
+            HOST.port = 80 //改不了
+        }
+    </script>
+</body>
+
+</html>

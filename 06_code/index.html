@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			html{
+				font-size:20px;
+			}
+			main,section{
+				display:block;
+			}
+			main{
+				width:30rem;
+				height:auto;
+				margin:2rem auto 0;
+				padding:1rem;
+				border-radius:1rem;
+				box-shadow:0 0 0.5rem 0.5rem #666;
+				font-size:0.7rem;
+			}
+			button{
+				display:block;
+				width:4rem;
+				height:1.5rem;
+				margin:1rem;
+				text-align:center;
+				line-height:1.5rem;
+				background-color:deepskyblue;
+				color:white;
+				cursor:pointer;
+				transition:all 1s;
+				border:0;
+			}
+			button:hover{
+				background-color:dodgerblue;
+			}
+			div{
+				margin:1rem;
+				cursor:pointer;
+				transition:all 1s;
+			}
+		    div:hover{
+				box-shadow: 0 0 0.3rem 0.3rem rgba(255,0,0,.3);
+			}
+			p{
+				width:100%;
+				height:auto;
+				display:flex;
+				flex-wrap:wrap;
+			}
+			section{
+				display:flex;
+			}
+			input,label{
+				width:3rem;
+				height:1.2rem;
+				margin-left:0.5rem;
+				text-align:center;
+				line-height:1.2rem;
+			}
+			span{
+				display:flex;
+				justify-content:center;
+				align-items:center;
+				color:#f60;
+				font-weight:bold;
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<section>
+				<button>创建 Box</button>
+				<span>
+					<label>宽度:</label><input type="text" name="width" value='80'>
+				</span>
+				<span>
+					<label>高度:</label><input type="text" name="height" value='80'>
+				</span>
+				<span>
+					<label>背景色:</label><input type="text" name="background" value='red'>
+				</span>
+			</section>
+			<p></p>
+		</main>
+		
+		<script>
+			var btn = document.querySelector('button');
+			function update(){
+				var width = document.querySelector('[name="width"]').value;
+				var height = document.querySelector('[name="height"]').value;
+				var bground = document.querySelector('[name="background"]').value;
+				var option = {
+					width: width,
+					height: height,
+					backgroundColor : bground
+				};
+				return option;
+			}
+			btn.onclick = function(){
+				var option = update();
+				var div = document.createElement('div');
+				option.width ? div.style.width = option.width + 'px' : div.style.width = '80px'; 
+				option.height ? div.style.height= option.height + 'px' : div.style.height = '80px'; 
+				option.backgroundColor ? div.style.backgroundColor = option.backgroundColor : div.style.backgroundColor = 'red'; 
+				document.querySelector('p').append(div);
+			}
+		</script>
+	</body>
+</html>
