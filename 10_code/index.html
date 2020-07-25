@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			html{
+				font-size:20px;
+			}
+			main,section{
+				display:block;
+			}
+			main{
+				width:30rem;
+				height:auto;
+				margin:2rem auto 0;
+				padding:1rem;
+				border-radius:1rem;
+				box-shadow:0 0 0.5rem 0.5rem #666;
+				font-size:0.7rem;
+			}
+			h3{
+				width:100%;
+				height:2rem;
+				line-height:2rem;
+				text-align:center;
+				background-color:black;
+				color:white;
+			}
+			p{
+				width:100%;
+				height:4rem;
+				display:flex;
+				align-items: center;
+			}
+			button{
+				display:block;
+				width:4rem;
+				height:1.8rem;
+				text-align:center;
+				line-height:1.8rem;
+				cursor:pointer;
+				color:white;
+				background-color:deepskyblue;
+				transition:all 1s;
+				border:0;
+				margin-right:2rem;
+			}
+			button:hover{
+				background-color:dodgerblue;
+			}
+			input{
+				display:block;
+				width:3rem;
+				height:1rem;
+				line-height:1rem;
+				text-align:center;
+				margin-right:1rem;
+			}
+			hr{
+				border:0.1rem solid green;
+				margin-bottom:1rem;
+			}
+			span{
+				display:block;
+				margin-right:2rem;
+			}
+		</style>
+		<style>
+			@media (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					padding:0;
+					margin:0;
+				}
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<section>
+				<h3>奇偶分类</h3>
+				<p>
+					<button>获取奇数</button>
+					<button>获取偶数</button>
+					<span>数值范围:</span>
+					<input type="number" name="num1" value='0'>
+					<span>--</span>
+					<input type="number" name="num2" value='0'>
+				</p>
+				<hr>
+				<div></div>
+			</section>
+		</main>
+		
+		<script>
+			// 获取DOM元素节点
+			var btns = document.querySelector('button');
+			var inputs = document.querySelectorAll('input');
+			
+			for(var i=0; i<inputs.length; i++){
+				inputs[i].onchange = function(){
+					Number(this.value) < 0 ? this.value = 0 : '';
+				}
+			}
+		</script>
+	</body>
+</html>

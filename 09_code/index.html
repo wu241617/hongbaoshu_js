@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			html{
+				font-size:20px;
+			}
+			main,section{
+				display:block;
+			}
+			main{
+				width:30rem;
+				height:auto;
+				margin:2rem auto 0;
+				padding:1rem;
+				border-radius:1reem;
+				box-shadow:0 0 0.5rem 0.5rem #666;
+				font-size:0.7rem;
+			}
+			h3{
+				width:100%;
+				height:2rem;
+				line-height:2rem;
+				text-align:center;
+				background-color:black;
+				color:white;
+			}
+			p{
+				display:flex;
+				align-items:center;
+			}
+			button{
+				display:block;
+				width:4rem;
+				height:1.5rem;
+				text-align:center;
+				line-height:1.5rem;
+				cursor:pointer;
+				color:white;
+				background-color:deepskyblue;
+				border:0;
+				margin:1rem 0;
+				margin-right:2rem;
+				transition:all 1s;
+			}
+			button:hover{
+				background-color:dodgerblue
+			}
+			input{
+				display:block;
+				width:8rem;
+				height:1.3rem;
+				line-height:1.3rem;
+				text-align:center;
+			}
+			hr{
+				border:0.1rem solid green;
+				margin-bottom:1rem;
+			}
+			div{
+				font-size:1rem;
+			}
+		</style>
+		<style>
+			@media (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					padding:0;
+					margin:0;
+				}
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<section>
+				<h3>创建 * 三角形</h3>
+				<p>
+					<button>创建</button>
+					<input type="text" placeholder="请输入三角形行数..." name="row">
+				</p>
+				<hr>
+				<div></div>
+			</section>
+		</main>
+		
+		<script>
+			// 获取对应的DOM元素节点
+			var btnDom = document.querySelector('button');
+			var rowDom = document.querySelector('[name="row"]');
+			var divDom = document.querySelector('div');
+			
+			// 创建函数
+			function create(){
+				var n = Number(rowDom.value);
+				var _html = '';
+				for(var i = 0; i<n; i++){
+					for(var j=0; j<i+1; j++){
+						_html += '*';
+					}
+					_html += '<br>';
+				}
+				divDom.innerHTML = _html;
+			}
+			
+			// 绑定点击事件
+			btnDom.addEventListener('click',create,false);
+			
+		</script>
+	</body>
+</html>

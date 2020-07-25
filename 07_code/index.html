@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			html{
+				font-size:20px;
+			}
+			main,section{
+				display:block;
+			}
+			main{
+				width:30rem;
+				height:auto;
+				margin:2rem auto 0;
+				padding:1rem;
+				box-shadow: 0 0 0.5rem 0.5rem #666;
+				border-radius:1rem;
+				font-size:0.7rem;
+			}
+			input{
+				display:block;
+				width:5rem;
+				height:1.2rem;
+				margin:1rem 0;
+				padding:0 0.5rem;
+				text-align:center;
+				line-height:1.2rem;
+			}
+			hr{
+				width:100%;
+				border:0.1rem solid green;
+			}
+			p{
+				margin:1rem 0;
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<section>
+				<input type="text" placeholder="请输入你的年龄:" name="age">
+				<hr>
+				<p><span>您处于的年龄阶段为：</span><b></b></p>
+			</section>
+		</main>
+		
+		<script>
+			var age = document.querySelector('[name="age"]');
+			var text = document.querySelector('b');
+			age.addEventListener('blur',function(){
+				var val = Number(age.value);
+				// switch(true){
+				// 	case val > 60 :
+				// 	text.innerHTML = '老年!';
+				// 	break;
+				// 	case val > 40 :
+				// 	text.innerHTML = '中年!';
+				// 	break;
+				// 	case val > 18 :
+				// 	text.innerHTML - '青年!';
+				// 	break;
+				// 	default : 
+				// 	text.innerHTML = '未成年!';
+				// }
+				if(val > 60){
+					text.innerHTML = '老年!';
+				}else if(val>40){
+					text.innerHTML = '中年!';
+				}else if(val>18){
+					text.innerHTML = '青年！';
+				}else{
+					text.innerHTML = '未成年!';
+				}
+			},false);
+		</script>
+	</body>
+</html>
