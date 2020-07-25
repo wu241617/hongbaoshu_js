@@ -24,7 +24,7 @@
 				margin:2rem auto 0;
 				padding:1rem;
 				border-radius:1rem;
-				box-shadow:0 0 0.5rem 0.5rem #666;
+				box-shadow:0 0 0.5rem 0.5rem pink;
 				font-size:0.7rem;
 			}
 			h3{
@@ -52,18 +52,18 @@
 				background-color:deepskyblue;
 				transition:all 1s;
 				border:0;
-				margin-right:2rem;
+				margin-right:1.5rem;
 			}
 			button:hover{
 				background-color:dodgerblue;
 			}
 			input{
 				display:block;
-				width:3rem;
-				height:1rem;
-				line-height:1rem;
+				width:2rem;
+				height:1.3rem;
+				line-height:1.3rem;
 				text-align:center;
-				margin-right:1rem;
+				margin-right:0.5rem;
 			}
 			hr{
 				border:0.1rem solid green;
@@ -71,7 +71,32 @@
 			}
 			span{
 				display:block;
-				margin-right:2rem;
+				margin-right:1rem;
+				color:red;
+				font-size:0.6rem;
+			}
+			.btn{
+				background-color:black;
+				color:white;
+				width:3rem;
+				height:1.5rem;
+				text-align:center;
+				line-height:1.5rem;
+				border:none;
+				background-color:rgba(255,0,0,.5);
+				cursor:pointer;
+				transition:all 1s;
+			}
+			.btn:hover{
+				background-color:rgba(255,0,0,.7);
+			}
+			.num{
+				font-size:0.9rem;
+			}
+			div{
+				width:100%;
+				height:auto;
+				overflow:auto;
 			}
 		</style>
 		<style>
@@ -89,14 +114,13 @@
 	<body>
 		<main>
 			<section>
-				<h3>奇偶分类</h3>
+				<h3>奇偶数值分类</h3>
 				<p>
 					<button>获取奇数</button>
 					<button>获取偶数</button>
-					<span>数值范围:</span>
-					<input type="number" name="num1" value='0'>
-					<span>--</span>
-					<input type="number" name="num2" value='0'>
+					<span class="num">数值范围:</span>
+					<span class="btn">num1</span><input type="number" name="num1" value='0'>
+					<span class="btn">num2</span><input type="number" name="num2" value='0'>
 				</p>
 				<hr>
 				<div></div>
@@ -105,12 +129,54 @@
 		
 		<script>
 			// 获取DOM元素节点
-			var btns = document.querySelector('button');
+			var btns = document.querySelectorAll('button');
 			var inputs = document.querySelectorAll('input');
+			var div = document.querySelector('div');
 			
+			// 输入值做限定（不能小于0）
 			for(var i=0; i<inputs.length; i++){
 				inputs[i].onchange = function(){
 					Number(this.value) < 0 ? this.value = 0 : '';
+					div.innerHTML = '';
+				}
+			}
+			
+			// 获取奇数
+			btns[0].addEventListener('click',function(){
+				var number = test();
+				if(number.num1 > number.num2){
+					 alert('请确保输入满足 : num1 > num2');
+					 return ;
+				}
+				for(var i=number.num1; i<=number.num2; i++){
+					if(i % 2 !== 0){
+						div.innerHTML += i+'&nbsp;&nbsp;&nbsp;'; 
+					}
+				}
+				div.innerHTML += '<br><hr>';
+			},false);
+			
+			//获取偶数
+			btns[1].addEventListener('click',function(){
+				var number = test();
+				if(number.num1 > number.num2){
+					 alert('请确保输入满足 : num1 > num2');
+					 return ;
+				}
+				for(var i=number.num1; i<=number.num2; i++){
+					if(i % 2 === 0){
+						div.innerHTML += i+'&nbsp;&nbsp;&nbsp;'; 
+					}
+				}
+				div.innerHTML += '<br><hr>';
+			},false);
+			
+			function test(){
+				var num1 = Number(inputs[0].value);
+				var num2 = Number(inputs[1].value); 
+				return {
+					num1: num1,
+					num2: num2
 				}
 			}
 		</script>
