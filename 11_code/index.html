@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				height:100%;
+				width:100%;
+			}
+			html{
+				font-size:20px;
+			}
+			main,section{
+				display:block;
+			}
+			main{
+				width:50rem;
+				height:auto;
+				margin:2rem auto 0;
+				padding:1rem;
+				box-shadow: 0 0 0.5rem 0.5rem #999;
+				border-radius:1rem;
+				font-size:0.8rem;
+				color:#666;
+			}
+			ul{
+				list-style:none;
+				width:100%;
+				height:10rem;
+				display:flex;
+				align-items: center;
+				position:relative;
+			}
+			ul>li{
+				display:flex;
+				align-items:center;
+				width:15%;
+				margin:1rem 2.5%;
+				height:8rem;
+				border:0.05rem solid mediumpurple;
+				cursor:pointer;
+				transition:all 1s;
+				position:absolute;
+				top:0;
+			}
+			li:nth-child(1){
+				left:0;
+				z-index: 1;
+				color:red;
+			}
+			li:nth-child(2){
+				left:7.5%;
+				z-index: 2;
+				color:blue;
+			}
+			li:nth-child(3){
+				left:15%;
+				z-index: 3;
+				border-left:0;
+				color:green;
+			}
+			li:nth-child(4){
+				left:22.5%;
+				z-index: 4;
+				border-left:0;
+				color:pink;
+			}
+			li:nth-child(5){
+				left:30%;
+				z-index: 5;
+				border-left:0;
+				color:black;
+			}
+			li:nth-child(6){
+				left:37.5%;
+				z-index: 6;
+				border-left:0;
+				color:orange;
+			}
+			ul>li:hover{
+				border:0.05rem solid darkolivegreen;
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<section>
+				<ul>
+					<li>红色</li>
+					<li>蓝色</li>
+					<li>绿色</li>
+					<li>粉色</li>
+					<li>黑色</li>
+					<li>橘色</li>
+				</ul>
+			</section>
+		</main>
+		
+		<script>
+			// 获取元素DOM节点
+			var lis = document.querySelectorAll('li');
+			
+			// 循环添加点击事件
+			for(var item of lis){
+				item.addEventListener('click',function(){
+					switch(this.innerText){
+						case '红色':
+						this.style.backgroundColor = 'red';
+						this.style.color = 'white';
+						this.style.justifyContent = 'center';
+						this.style.justifyContent = 'center';
+						break;
+						case '蓝色':
+						this.style.backgroundColor = 'blue';
+						this.style.color = 'white';
+						this.style.left = '15%';
+						this.style.justifyContent = 'center';
+						break;
+						case '绿色':
+						this.style.backgroundColor = 'green';
+						this.style.color = 'white';
+						this.style.left = '30%';
+						this.style.justifyContent = 'center';
+						break;
+						case '粉色':
+						this.style.backgroundColor = 'pink';
+						this.style.color = 'white';
+						this.style.left = '45%';
+						this.style.justifyContent = 'center';
+						break;
+						case '黑色':
+						this.style.backgroundColor = 'black';
+						this.style.color = 'white';
+						this.style.left = '60%';
+						this.style.justifyContent = 'center';
+						break;
+						case '橘色':
+						this.style.backgroundColor = 'orange';
+						this.style.color = 'white';
+						this.style.left = '75%';
+						this.style.justifyContent = 'center';
+						break;
+					}
+				},false);
+			}
+		</script>
+	</body>
+</html>

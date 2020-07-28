@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			html{
+				font-size:20px;
+			}
+			main,body{
+				display:block;
+			}
+			main{
+				width:40rem;
+				height:auto;
+				margin:2rem auto 0;
+				padding:1rem;
+				border-radius:1rem;
+				box-shadow:0 0 0.5rem 0.5rem #999;
+				font-size:0.7rem;
+			}
+			ul{
+				list-style:none;
+				display:flex;
+				width:10rem;
+				height:auto;
+			}
+			ul>li{
+				width:4rem;
+				height:1.5rem;
+				line-height:1.5rem;
+				margin-right:1.9rem;
+				padding:0.2rem 0.5rem;
+				text-align:center;
+				cursor:pointer;
+				color:white;
+				background-color:deepskyblue;
+				transition:all 1s;
+			}
+			li:hover{
+				background-color:dodgerblue;
+			}
+		</style>
+		<style>
+			@media (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					padding:0;
+					margin:0;
+				}
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<section>
+				<p>
+					<ul>
+						<li>23</li>
+						<li>false</li>
+						<li>"wuhao"</li>
+						<li>undefined</li>
+						<li>null</li>
+						<li>[2,3,6]</li>
+						<li>{name:'wu'}</li>
+						<li>function(){}</li>
+					</ul>
+				</p>
+			</section>
+		</main>
+		
+		<script>
+			// 获取对应的DOM元素节点
+			var lis = document.querySelectorAll('li');
+			var dom;
+			
+			// 循环给li绑定点击事件
+			for(var item of lis){
+				item.addEventListener('click',function(){
+					switch(this.innerText){
+						case '23':
+						dom = 23;
+						alert(typeof dom);
+						break;
+						case 'false':
+						dom = false;
+						alert(typeof dom);
+						break;
+						case '"wuhao"':
+						dom = 'wuhao';
+						alert(typeof dom);
+						break;
+						case 'undefined':
+						dom = undefined;
+						alert(typeof dom);
+						break;
+						case 'null':
+						dom = null;
+						alert(typeof dom);
+						break;
+						case '[2,3,6]':
+						dom = [2,3,6];
+						var text;
+						dom instanceof Array ? text='array' : '';
+						alert(text);
+						break;
+						case "{name:'wu'}":
+						dom = {name:'wuhao',age:23};
+						alert(typeof dom);
+						break;
+						case 'function(){}':
+						dom = function(){};
+						alert(typeof dom);
+						break;
+					}
+				},false);
+			}
+		</script>
+	</body>
+</html>
