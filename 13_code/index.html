@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串类型</title>
+		<style>
+			ul{
+				list-style:none;
+			}
+			ul>li:nth-child(odd){
+				background-color:black;
+				color:green;
+			}
+			ul>li{
+				width:500px;
+				height:30px;
+				line-height:30px;
+				padding-left:20px;    
+				cursor:pointer;
+				transition:all 1s;
+			}
+			ul>li:hover{
+				background-color:pink;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			var str = 'wuhao\t\t\t\t';
+			document.write(str);
+			var newStr = 'hello';
+			document.write(newStr + '\n this is good \n ' + str);
+			/*
+			let str = 'wuhao';
+			alert(str);
+			let newStr = 'hello';
+			alert(`${newStr} this is good !`)
+			*/
+		   var strArr = [{title:'媒体查询响应式布局'},{title:'FLEX弹性盒模型'},{title:'GRID栅格系统'}]
+		   var ul = document.createElement('ul');
+		   for(var i=0; i<strArr.length; i++){
+			   var li = document.createElement('li');
+			   li.innerHTML = strArr[i].title;
+			   ul.appendChild(li);
+		   }
+		   document.body.appendChild(ul);
+		</script>
+	</body>
+</html>
